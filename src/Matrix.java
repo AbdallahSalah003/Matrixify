@@ -37,4 +37,13 @@ public class Matrix {
         }
         return ret;
     }
+    public boolean isIdentity() {
+        for(int i=0; i<this.N; ++i) {
+            for(int j=0; j<this.N; ++j) {
+                if(i==j&&this.matrix[i][j]!=1) return false;
+                if(i!=j&&this.matrix[i][j]!=0) return false;
+            }
+        }
+        return true;
+    }
 }
