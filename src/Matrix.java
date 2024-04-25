@@ -26,4 +26,15 @@ public class Matrix {
             }
         }
     }
+    public String[] formatMatrix() {
+        String[] ret = new String[this.N];
+        for(int i=0; i<this.N; ++i) {
+            StringBuilder ss = new StringBuilder();
+            for(int j=0; j<this.N; ++j) {
+                ss.append(matrix[i][j]+" ");
+            }
+            ret[i]=ss.toString();
+        }
+        return ret;
+    }
 }
