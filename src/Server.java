@@ -1,4 +1,5 @@
 import java.io.*;
+import javax.crypto.NullCipher;
 import javax.servlet.*;
 import javax.servlet.http.*;
 public class Server extends HttpServlet {
@@ -34,6 +35,17 @@ public class Server extends HttpServlet {
                 for(int i=0; i<length; ++i) {
                     page = page + formatedMatrix[i];
                     page = page + "<br>";
+                }
+                String transpose = request.getParameter("Transpose");
+                String isIdentity = request.getParameter("IsIdentity");
+                if(transpose != null) {
+                    page = page + "<h2>Transpose Matrix</h2>";
+                    matrix.Transpose();
+                    formatedMatrix = matrix.formatMatrix();
+                    for(int i=0; i<length; ++i) {
+                        page = page + formatedMatrix[i];
+                        page = page + "<br>";
+                    }
                 }
                 page += "</body>\n" + "</html>";
                 PrintWriter output = response.getWriter();
