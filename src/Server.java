@@ -46,6 +46,16 @@ public class Server extends HttpServlet {
                         page = page + formatedMatrix[i];
                         page = page + "<br>";
                     }
+                    matrix.Transpose();
+                }
+                if(isIdentity != null) {
+                    page = page + "<h2>Is Identity Matrix</h2>";
+                    boolean checkIdentity = matrix.isIdentity();
+                    if(checkIdentity) {
+                        page = page + "<h4>True</h4>";
+                    } else {
+                        page = page + "<h4>False</h4>";
+                    }
                 }
                 page += "</body>\n" + "</html>";
                 PrintWriter output = response.getWriter();
