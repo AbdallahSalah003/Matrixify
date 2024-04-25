@@ -29,9 +29,13 @@ public class Server extends HttpServlet {
                         "<html>\n" +
                         "<body bgcolor=\"#f0f0f0\" align=\"center\" >\n" +
                         "<h1 align=\"center\"> Result </h1>\n" +
-                        "<h2>Original Matrix</h2>\n" + input;
+                        "<h2>Original Matrix</h2>\n";
+                String[] formatedMatrix = matrix.formatMatrix();
+                for(int i=0; i<length; ++i) {
+                    page = page + formatedMatrix[i];
+                    page = page + "<br>";
+                }
                 page += "</body>\n" + "</html>";
-
                 PrintWriter output = response.getWriter();
                 output.println(page);
             }
